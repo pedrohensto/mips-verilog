@@ -1,0 +1,15 @@
+`default_nettype none
+
+module maindec (
+    input [5:0] op,
+    output memtoreg,
+    memwrite,
+    output branch,
+    alusrc,
+    output regdst,
+    regwrite,
+    output jump,
+    output [1:0] aluop
+);
+
+endmodule
