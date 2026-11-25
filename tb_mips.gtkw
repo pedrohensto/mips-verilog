@@ -1,0 +1,63 @@
+[*] sinais principais do testbench do mips (abrir da pasta do projeto: gtkwave tb_mips.gtkw)
+[*] valores em decimal para caberem em um ciclo; instrucao traduzida por tb_mips_instr.filter
+[dumpfile] "tb_mips.vcd"
+[timestart] 0
+[size] 1500 850
+[pos] -1 -1
+*-7.600000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_mips.
+[treeopen] tb_mips.dut.
+[treeopen] tb_mips.dut.mips.
+[sst_width] 220
+[signals_width] 170
+[sst_expanded] 1
+[sst_vpaned_height] 250
+@200
+-Testbench
+@28
+tb_mips.clk
+tb_mips.reset
+@200
+-Instrucao
+@24
+tb_mips.dut.pc[31:0]
+@2022
+^1 tb_mips_instr.filter
++{instr} tb_mips.dut.instr[31:0]
+@200
+-Controle
+@28
+tb_mips.dut.mips.regwrite
+tb_mips.dut.mips.regdst
+tb_mips.dut.mips.alusrc
+tb_mips.dut.mips.c.branch
+tb_mips.dut.mips.memwrite
+tb_mips.dut.mips.memtoreg
+tb_mips.dut.mips.jump
+tb_mips.dut.mips.pcsrc
+tb_mips.dut.mips.zero
+@200
+-ALU
+@28
+tb_mips.dut.mips.alucontrol[2:0]
+@420
+tb_mips.dut.mips.dp.srca[31:0]
+tb_mips.dut.mips.dp.srcb[31:0]
+tb_mips.dut.mips.dp.aluout[31:0]
+@200
+-Registradores
+@420
++{$2} tb_mips.dut.mips.dp.rf.\rf[2][31:0]
++{$3} tb_mips.dut.mips.dp.rf.\rf[3][31:0]
++{$4} tb_mips.dut.mips.dp.rf.\rf[4][31:0]
++{$5} tb_mips.dut.mips.dp.rf.\rf[5][31:0]
++{$7} tb_mips.dut.mips.dp.rf.\rf[7][31:0]
+@200
+-Memoria de dados
+@420
+tb_mips.writedata[31:0]
+tb_mips.dut.readdata[31:0]
++{mem[80]} tb_mips.dut.dmem.\RAM[20][31:0]
++{mem[84]} tb_mips.dut.dmem.\RAM[21][31:0]
+[pattern_trace] 1
+[pattern_trace] 0

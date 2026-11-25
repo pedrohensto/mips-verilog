@@ -1,7 +1,6 @@
 `default_nettype none
 `timescale 1ns / 1ps
 
-// testbench do livro (secao 7.6.3) adaptado para verilog
 // o programa em memfile.dat deve terminar escrevendo 7 no endereco 84
 module tb_mips;
   reg clk, reset;
@@ -20,6 +19,15 @@ module tb_mips;
   initial begin
     $dumpfile("tb_mips.vcd");
     $dumpvars(0, tb_mips);
+    // arrays nao entram no dump por padrao: registradores e posicoes de
+    // memoria usados pelo programa de teste sao adicionados um a um
+    $dumpvars(0, dut.mips.dp.rf.rf[2]);
+    $dumpvars(0, dut.mips.dp.rf.rf[3]);
+    $dumpvars(0, dut.mips.dp.rf.rf[4]);
+    $dumpvars(0, dut.mips.dp.rf.rf[5]);
+    $dumpvars(0, dut.mips.dp.rf.rf[7]);
+    $dumpvars(0, dut.dmem.RAM[20]);  // endereco 80
+    $dumpvars(0, dut.dmem.RAM[21]);  // endereco 84
     reset <= 1;
     #22;
     reset <= 0;

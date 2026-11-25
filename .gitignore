@@ -1,1 +1,3 @@
 *.vcd
+tb_mips
+tb_alu
