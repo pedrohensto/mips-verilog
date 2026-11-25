@@ -1,3 +1,5 @@
+`default_nettype none
+
 module regfile (
     input clk,
     input we3,
@@ -16,10 +18,8 @@ module regfile (
     end
   end
 
-  // assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
-  // assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
-
-  assign rd1 = rf[ra1];
-  assign rd2 = rf[ra2];
+  // registrador 0 ($zero) sempre le 0
+  assign rd1 = (ra1 != 0) ? rf[ra1] : 32'b0;
+  assign rd2 = (ra2 != 0) ? rf[ra2] : 32'b0;
 
 endmodule

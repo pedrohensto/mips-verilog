@@ -21,9 +21,6 @@ module alu (
       // sub 110
       3'b110: begin
         {cout, sum} = a + (~b) + 1;
-        if (~sum) begin
-          zero = 0;
-        end
       end
       // and 000
       3'b000: begin
@@ -39,17 +36,16 @@ module alu (
       3'b111: begin
         sum  = ($signed(a) < $signed(b)) ? 32'd1 : 32'd0;
         cout = 0;
-        if (~sum[0]) begin
-          zero = 1;
-        end
       end
       // default para evitar latches
       default: begin
         sum  = 0;
         cout = 0;
-        zero = 0;
       end
     endcase
+
+    // flag zero: resultado todo em 0 (usada pelo beq, que faz a - b)
+    zero = (sum == 32'b0);
 
   end
 endmodule
