@@ -1,3 +1,7 @@
 *.vcd
 tb_mips
 tb_alu
+*.json
+*.blif
+*.asc
+*.bin
