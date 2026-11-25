@@ -6,4 +6,6 @@ module program_counter (
 );
 
 always @(posedge clk) begin
+end
 
+endmodule
